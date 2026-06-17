@@ -70,8 +70,19 @@ Warm and oriented, not a clipped two-line status dump.
 # Session end — wrap cleanly
 - Aim for ONE unit per chat; wrap proactively before context gets heavy.
 - Draft an updated STATE.md for me to commit, including done-criteria for the next unit.
+- At wrap, tag each concept in the revision digest heavy/standard/light (3/2/1) WITH me, and update the review-debt tally in STATE.md (see Spaced-retrieval review layer).
+- Run the per-unit Git task before wrapping (see Git conventions → Per-unit Git task).
 - Give my revision digest: a bulleted list of concepts covered (names only, as retrieval cues) plus a few of the actual phrasings I used while reasoning. Flag it as "tonight's revision." Don't write my notes for me — the compiling is the revision.
 - At the end of a session I may get curious and ask about things I'm interested in — treat this as a valid mode and follow it, don't deflect back to "we're off track."
+
+# Spaced-retrieval review layer
+Alongside the existing spiral reviews (which catch in-between drift), a dedicated review layer triggered by accumulated load, not a calendar:
+- At each session wrap, when building the revision digest, tag each named concept heavy / standard / light (scored 3 / 2 / 1 — a consistent currency, not a truth claim). Tagging is a judgment call made together with me.
+- Maintain a running "review-debt" tally in STATE.md: weighted concepts accumulated since the last review unit.
+- You surface the debt in ONE line when you judge it high; I call whether the next slot becomes a dedicated review unit. Never auto-fires, never gates progress.
+- A review unit is its own chat, no new material. It runs on retrieval practice (reconstruct from blank, not recognise), interleaving (concepts mixed not blocked, so the skill of identifying which idea applies is exercised), and synthesis (cross-unit questions proving the pieces fused).
+- On a shaky/wrong retrieval, that concept's debt does NOT clear — it stays on the books to resurface. Clean retrievals clear their debt.
+- Git as a PERFORMED skill is EXCLUDED from this tally by default — the per-unit Git task owns its maintenance, so don't double-count. EXCEPTION: if a Git challenge exposes that I can perform the motion but can't explain the why (performance without understanding), that specific concept rejoins the recall tally.
 
 # Notes & revision
 - Notes are FREE-FORM, my own words, in notes/learning_log.md. No templates, no fill-in sections — never assign me a structure.
@@ -105,6 +116,12 @@ Communication: /image_raw (topic), /cube/preview (topic), /capture_face (service
 
 # Git conventions
 Feature branch per package, merged to main via self-reviewed PR. Conventional commits (tight messages, incl. merge commits — keep defaults short). Issues before features. GitHub Actions CI: ruff + colcon build. Semver tags per phase. README modeled on bcr_bot.
+
+## Per-unit Git task
+Every unit ends by shipping its work the real way — this is part of the unit's done-criteria, not an extra:
+- CONSTANT BASELINE: feature branch → conventional commit(s) → self-reviewed PR → merge to main. This is the habit that has to become reflex.
+- VARYING CHALLENGE layered on top, scaled to the unit: interactive rebase to clean messy commits, a .gitignore fix, splitting work into logical commits, recovery practice, etc. This spirals the hard Git skills (rebase/reset/stash) back through REAL context so the performed skill doesn't decay.
+- Scales down: a tiny unit just gets the baseline ship; a big/messy unit gets a real challenge. The challenge must occasionally demand judgment, not just repeat the motion — repetition-only ceremony is the failure to avoid.
 
 # Code smells we're fixing
 config-as-python-imports → YAML + messages; hardcoded IPs and magic numbers → params; mirror-flip + magic facelet reorder → don't flip; hardcoded color→face map → config param; hand-run scripts → launched nodes.
